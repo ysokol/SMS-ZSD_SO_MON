@@ -1,0 +1,134 @@
+{
+  "projectType": [
+    "com.watt.commonbuilder.sapui5clientbuild",
+    "sap.watt.uitools.ide.fiori"
+  ],
+  "generation": [
+    {
+      "templateId": "fioriexttemplate.extensionProject",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sat, 03 Feb 2018 18:25:33 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.replaceservicecomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sun, 04 Feb 2018 15:23:18 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.extendviewcomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sun, 04 Feb 2018 17:55:07 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.replaceviewcomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sun, 04 Feb 2018 18:15:37 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.extendcontrollercomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sun, 08 Apr 2018 13:04:58 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.i18ncomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sun, 08 Apr 2018 10:37:40 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/ZSD_SO_TRACKING_SRV",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "basevalidator": {
+    "services": {
+      "js": "jsValidator",
+      "xml": "fioriXmlAnalysis"
+    }
+  },
+  "codeCheckingTriggers": {
+    "notifyBeforePush": true,
+    "notifyBeforePushLevel": "Error",
+    "blockPush": false,
+    "blockPushLevel": "Error"
+  },
+  "extensibility": {
+    "controllers": {
+      "Main": "SD_SO_MON%2fMain.controller.js",
+      "S2": "SD_SO_MON%2fview%2fS2.controller.js",
+      "S3": "SD_SO_MON%2fview%2fS3.controller.js",
+      "S3New": "SD_SO_MON%2fview%2fS3New.controller.js",
+      "S4": "SD_SO_MON%2fview%2fS4.controller.js",
+      "S4New": "SD_SO_MON%2fview%2fS4New.controller.js",
+      "SOContacts": "SD_SO_MON%2fview%2fSOContacts.controller.js",
+      "SODeliverySchedules": "SD_SO_MON%2fview%2fSODeliverySchedules.controller.js"
+    },
+    "views": {
+      "Main": "SD_SO_MON%2fMain.view.xml",
+      "S2": "SD_SO_MON%2fview%2fS2.view.xml",
+      "S3": "SD_SO_MON%2fview%2fS3.view.xml",
+      "S3New": "SD_SO_MON%2fview%2fS3New.view.xml",
+      "S4": "SD_SO_MON%2fview%2fS4.view.xml",
+      "S4New": "SD_SO_MON%2fview%2fS4New.view.xml",
+      "SOContacts": "SD_SO_MON%2fview%2fSOContacts.view.xml",
+      "SODeliverySchedules": "SD_SO_MON%2fview%2fSODeliverySchedules.view.xml"
+    },
+    "fragments": {
+      "ContactTemplate": "SD_SO_MON%2fview%2fContactTemplate.fragment.xml",
+      "ListItemTemplate": "SD_SO_MON%2fview%2fListItemTemplate.fragment.xml",
+      "ListItemTemplateNew": "SD_SO_MON%2fview%2fListItemTemplateNew.fragment.xml",
+      "S4EditDialog": "SD_SO_MON%2fview%2fS4EditDialog.fragment.xml",
+      "S4SubmitDialog": "SD_SO_MON%2fview%2fS4SubmitDialog.fragment.xml"
+    },
+    "type": "abaprep",
+    "shouldLinkComponentToManifest": false,
+    "component": "SD_SO_MON%2fComponent.js",
+    "configuration": "SD_SO_MON%2fConfiguration.js",
+    "versionJsonPath": "SD_SO_MON%2fversion.json",
+    "system": {
+      "name": "D15",
+      "description": "D15",
+      "proxyUrlPrefix": "/webidedispatcher/destinations/D15",
+      "path": "/sap/bc/adt",
+      "url": "/webidedispatcher/destinations/D15/sap/bc/adt",
+      "wattUsage": "dev_abap",
+      "systemId": "D15",
+      "entryPath": "/sap/bc/adt",
+      "sapClient": "100",
+      "additionalData": []
+    },
+    "discoveryStatus": {
+      "csrfToken": "SxxlmZ0hHD05jnAts5Xckg==",
+      "transports": "/webidedispatcher/destinations/D15/sap/bc/adt/cts/transports",
+      "transportchecks": "/webidedispatcher/destinations/D15/sap/bc/adt/cts/transportchecks",
+      "filestore_ui5_bsp": "/webidedispatcher/destinations/D15/sap/bc/adt/filestore/ui5-bsp/objects",
+      "search": "/webidedispatcher/destinations/D15/sap/bc/adt/repository/informationsystem/search",
+      "ato_settings": "/webidedispatcher/destinations/D15/sap/bc/adt/ato/settings",
+      "ui5_rt_version": "/webidedispatcher/destinations/D15/sap/bc/adt/filestore/ui5-bsp/ui5-rt-version",
+      "description": "D15",
+      "proxyUrlPrefix": "/webidedispatcher/destinations/D15"
+    },
+    "BSPName": "SD_SO_MON",
+    "namespace": "cus.sd.salesorder.monitor",
+    "resourceBundle": "i18n/i18n.properties",
+    "parentResourceRootUrl": "/destinations/D15/sap/bc/ui5_ui5/sap/SD_SO_MON"
+  },
+  "build": {
+    "targetFolder": "dist",
+    "sourceFolder": "webapp",
+    "buildRequired": true
+  },
+  "deploy": {
+    "destination": "D15",
+    "name": "ZSD_SO_MON"
+  }
+}

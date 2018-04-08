@@ -1,0 +1,164 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<sap.ui.core:View controllerName="cus.sd.salesorder.monitor.view.S3New" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout">
+	<Page id="SalesOrderDetail" showNavButton="{device>/isPhone}">
+		<sap.ui.layout:VerticalLayout width="100%">
+			<sap.ui.layout:content>
+				<ObjectHeader id="headerInfo"
+					title="{parts:[{path:'i18n>SO_NEW'},{path:'LocalDetails>/SalesOrderNumber'}], formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatSalesOrder'}"
+					number="{parts:[{path : 'LocalDetails>/NetPriceAmount'},{path : 'LocalDetails>/Currency'}], formatter:'sap.ca.ui.model.format.AmountFormat.FormatAmountStandard'}"
+					numberUnit="{LocalDetails>/Currency}" introActive="false" titleActive="false" iconActive="false" responsive="false"
+					fullScreenOptimized="false">
+					<attributes>
+						<!-- extSOHeaderDetails extension point allows you to replace Purchase Order, Order Date, Requested Date, Ship To Party Name and Sales Order Contact Info in the details header -->
+						<sap.ui.core:ExtensionPoint name="extSOHeaderDetails">
+							<ObjectAttribute
+								text="{parts:[{path:'i18n>PO_NEW'},{path:'LocalDetails>/PO'}], formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatPO'}"
+								active="false"></ObjectAttribute>
+							<ObjectAttribute title="{i18n>ORDERED}"
+								text="{path:'LocalDetails>/OrderDate', type:'sap.ca.ui.model.type.Date', formatOptions: { source: { pattern: 'yyyyMMdd' }, style: 'long' }}"
+								active="false"></ObjectAttribute>
+							<ObjectAttribute title="{i18n>REQUESTED}"
+								text="{path:'LocalDetails>/RequestedDate', type:'sap.ca.ui.model.type.Date', formatOptions: { source: { pattern: 'yyyyMMdd' }, style: 'long' }}"></ObjectAttribute>
+							<ObjectAttribute title="{i18n>SHIP_TO_NM}" text="{LocalDetails>/ShipToPartyName}" maxLines="0"></ObjectAttribute>
+							<ObjectAttribute active="true" text="{i18n>SO_CONT_INFO}" icon="sap-icon://group" press="onContacts"></ObjectAttribute>
+							<!-- MODIFICATION START -->
+							<ObjectAttribute title="{i18n>ZSO_USER_CURRENT_STATUS}"
+								text="{path:'LocalDetails>/UserStatusCurrentCode'} - {path:'LocalDetails>/UserStatusCurrentDescr'}"/>
+							<ObjectAttribute title="{i18n>ZSO_USER_NEXT_STATUS}" text="{path:'LocalDetails>/UserStatusNextCode'} - {path:'LocalDetails>/UserStatusNextDescr'}"/>
+							<!-- MODIFICATION END -->
+						</sap.ui.core:ExtensionPoint>
+					</attributes>
+					<statuses>
+						<ObjectStatus title="{i18n>ORDER_TOTAL}"
+							text="{parts:[ {path:'LocalDetails>/TotalAmount'}, {path: 'LocalDetails>/Currency'}], formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatTotalAmountNoPrfx'}"></ObjectStatus>
+						<ObjectStatus title="{i18n>SO_ITM_OVR_STATUS}"
+							text="{path:'OverallStatusCode', formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatNewStatusText'}"></ObjectStatus>
+						<ObjectStatus title="{i18n>SO_DELV_STAT}"
+							text="{path:'ShippingStatusCode', formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatNewStatusText'}"
+							state="{path:'ShippingStatusCode', formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatNewStatus'}"></ObjectStatus>
+						<!-- MODIFICATION START -->
+						<ObjectStatus id="objStatusApproval" text="{i18n>ZSO_USER_STATUS_ACTION}" state="Warning" icon="sap-icon://status-in-process"/>
+						<!-- MODIFICATION END -->
+					</statuses>
+				</ObjectHeader>
+				<IconTabBar id="SO_TAB_CON" expandable="{device>/isNoPhone}" select="handleItemFilterSelect">
+					<items>
+						<IconTabFilter icon="sap-icon://hint" count="{ItemCountModel>/OrderItemsCount}" showAll="true"
+							text="{parts:[{path:'ItemCountModel>/OrderItemsCount'}], formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatItemsLabel'}" key="All"/>
+						<IconTabSeparator/>
+						<IconTabFilter icon="sap-icon://task" iconColor="Critical" count="{ItemCountModel>/openCount}" text="{i18n>STATUS_OP}" key="Open"/>
+						<IconTabFilter icon="sap-icon://process" iconColor="Negative" count="{ItemCountModel>/inProcessCount}" text="{i18n>STATUS_IP}"
+							key="InProcess"/>
+						<IconTabFilter icon="sap-icon://shipping-status" iconColor="Positive" count="{ItemCountModel>/shippedCount}" text="{i18n>STATUS_SH}"
+							key="Shipped"/>
+						<!-- extSOChangePaymentInfo extension point allows you to add new tabs after Shipped tab -->
+						<sap.ui.core:ExtensionPoint name="extSOChangePaymentInfo"></sap.ui.core:ExtensionPoint>
+						<!-- extSOChangeNotes extension point allows you to add new tabs after Shipped tab -->
+						<sap.ui.core:ExtensionPoint name="extSOChangeNotes"></sap.ui.core:ExtensionPoint>
+						<!-- extSOChangeAttachments extension point allows you to add new tabs after Shipped tab -->
+						<sap.ui.core:ExtensionPoint name="extSOChangeAttachments"></sap.ui.core:ExtensionPoint>
+					</items>
+				</IconTabBar>
+				<!-- Start Table here - hide on click of contacts via controller -->
+				<Table id="itemsTable" showNoData="false" items="{LocalOrderItems>/}" growing="true" growingThreshold="30" growingScrollToLoad="true">
+					<columns>
+						<Column demandPopin="false">
+							<Text text="{i18n>SO_ITM_DES}"/>
+						</Column>
+						<!-- extSOItemColumnHeader extension point allows you to add new Column Headers after Sales Order Item Number column -->
+						<sap.ui.core:ExtensionPoint name="extSOItemColumnHeader"></sap.ui.core:ExtensionPoint>
+						<Column hAlign="Right" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
+							<header>
+								<Label text="{i18n>SO_ITM_OR_QT}" textAlign="Right" width="100%"></Label>
+							</header>
+						</Column>
+						<Column hAlign="Right" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+							<Text text="{i18n>SO_ITM_PRICE}"></Text>
+						</Column>
+						<Column hAlign="Right" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+							<Text text="{i18n>SO_ITM_NET_AMT}"></Text>
+						</Column>
+						<Column hAlign="Right" demandPopin="true" minScreenWidth="Small" popinDisplay="Inline" width="20%">
+							<header>
+								<Label text="{i18n>SO_ITM_ST_SUM}"></Label>
+							</header>
+						</Column>
+						<Column hAlign="Right" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
+							<header>
+								<Label text="{i18n>SO_ITM_SHPD_QT}" textAlign="Left" width="100%"></Label>
+							</header>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press="_onDetailListItemPressed">
+							<cells>
+								<ObjectIdentifier
+									title="{parts:[{path: 'LocalOrderItems>ItemNumber'}, {path: 'LocalOrderItems>Description'}], formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatItemNumber'}"></ObjectIdentifier>
+								<!-- extSOItemColumnValue extension point allows you to add new cells after Sales Order Item Number cell -->
+								<sap.ui.core:ExtensionPoint name="extSOItemColumnValue"></sap.ui.core:ExtensionPoint>
+								<ObjectNumber
+									number="{parts:[{path:'LocalOrderItems>Quantity'}, {path:'LocalOrderItems>UnitofMeasure'}], formatter:'sap.ca.ui.model.format.QuantityFormat.FormatQuantityStandard'}"
+									emphasized="false" unit="{LocalOrderItems>UnitOfMeasure}"></ObjectNumber>
+								<ObjectNumber
+									number="{parts:[{path:'LocalOrderItems>PricePerUnit'},{path:'LocalOrderItems>Currency'}], formatter:'sap.ca.ui.model.format.AmountFormat.FormatAmountStandard'}"
+									emphasized="false" unit="{LocalOrderItems>Currency}"></ObjectNumber>
+								<ObjectNumber
+									number="{parts:[{path:'LocalOrderItems>Amount'},{path:'LocalOrderItems>Currency'}], formatter:'sap.ca.ui.model.format.AmountFormat.FormatAmountStandard'}"
+									emphasized="false" unit="{LocalOrderItems>Currency}"></ObjectNumber>
+								<ObjectStatus text="{path:'LocalOrderItems>ItemStatusCode', formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatNewStatusText'}"
+									state="{path:'LocalOrderItems>ItemStatusCode', formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatNewStatus'}"></ObjectStatus>
+								<ObjectNumber
+									number="{parts:[{path:'LocalOrderItems>ShippedItemsQty'}, {path:'LocalOrderItems>UnitofMeasure'}], formatter:'sap.ca.ui.model.format.QuantityFormat.FormatQuantityStandard'}"
+									emphasized="false" unit="{LocalOrderItems>UnitOfMeasure}"></ObjectNumber>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<!--  Start Service Table -->
+				<Table id="serviceItemsTable" showNoData="false" items="{serviceModel>/}" growing="true" growingThreshold="30" growingScrollToLoad="true">
+					<columns>
+						<Column demandPopin="false">
+							<Text text="{i18n>SO_ITM_SERV_ITM_DES}"></Text>
+						</Column>
+						<Column hAlign="Right" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+							<header>
+								<Text text="{i18n>SO_ITM_SERV_ITM_NET_AMT}"></Text>
+							</header>
+						</Column>
+						<Column hAlign="Right" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+							<header>
+								<Label text="{i18n>SO_ITM_SERV_ITM_ST_SUM}" textAlign="Right" width="100%"></Label>
+							</header>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<ObjectIdentifier
+									title="{parts:[{path: 'serviceModel>ItemNumber'}, {path: 'serviceModel>Description'}], formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatItemNumber'}"></ObjectIdentifier>
+								<ObjectNumber
+									number="{parts:[{path:'serviceModel>Amount'},{path:'serviceModel>Currency'}], formatter:'sap.ca.ui.model.format.AmountFormat.FormatAmountStandard'}"
+									emphasized="false" unit="{serviceModel>Currency}"></ObjectNumber>
+								<ObjectStatus text="{path:'serviceModel>ItemStatusCode', formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatNewStatusText'}"
+									state="{path:'serviceModel>ItemStatusCode', formatter:'cus.sd.salesorder.monitor.utils.Formatter.formatNewStatus'}"></ObjectStatus>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</sap.ui.layout:content>
+		</sap.ui.layout:VerticalLayout>
+		<!-- end of Item table (PurchaseOrderItems) -->
+		<!-- MODIFICATION START -->
+		<OverflowToolbar>
+			<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>ZSO_APPROVE}" press="onApprovePress"/>
+			<Button type="Reject" text="{i18n>ZSO_REJECT}" press="onRejectPress"/>
+		</OverflowToolbar>
+		<!-- MODIFICATION END -->
+	</Page>
+</sap.ui.core:View>

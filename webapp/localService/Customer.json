@@ -1,0 +1,171 @@
+[{
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('500098')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('500098')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "500098",
+	"CustomerName": "Becker Berlin",
+	"SalesOrganization": "0001",
+	"DistributionChannel": "01",
+	"Division": "01",
+	"SalesOrganizationName": "Sales Org. Germany",
+	"DistributionChannelName": "Direct Sales",
+	"DivisionName": "Pumps",
+	"City": "Berlin",
+	"PostalCode": "13467",
+	"CityZip": "Berlin, 13467"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300700')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300700')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "300700",
+	"CustomerName": "Builders Depot",
+	"SalesOrganization": "3020",
+	"DistributionChannel": "10",
+	"Division": "00",
+	"SalesOrganizationName": "USA Denver",
+	"DistributionChannelName": "Final customer saleS",
+	"DivisionName": "Cross-Division",
+	"City": "Eveleth",
+	"PostalCode": "55734",
+	"CityZip": "Eveleth, 55734"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300700')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300700')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "300700",
+	"CustomerName": "Builders Depot",
+	"SalesOrganization": "3020",
+	"DistributionChannel": "30",
+	"Division": "00",
+	"SalesOrganizationName": "USA Denver",
+	"DistributionChannelName": "Internet Sales",
+	"DivisionName": "Cross-Division",
+	"City": "Eveleth",
+	"PostalCode": "55734",
+	"CityZip": "Eveleth, 55734"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('509999')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('509999')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "509999",
+	"CustomerName": "CB Exclusive (Name 1)",
+	"SalesOrganization": "3020",
+	"DistributionChannel": "10",
+	"Division": "00",
+	"SalesOrganizationName": "USA Denver",
+	"DistributionChannelName": "Final customer saleS",
+	"DivisionName": "Cross-Division",
+	"City": "City goes here",
+	"PostalCode": "12345",
+	"CityZip": "City goes here, 12345"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300701')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300701')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "300701",
+	"CustomerName": "Clinton Industries",
+	"SalesOrganization": "3020",
+	"DistributionChannel": "10",
+	"Division": "00",
+	"SalesOrganizationName": "USA Denver",
+	"DistributionChannelName": "Final customer saleS",
+	"DivisionName": "Cross-Division",
+	"City": "WILMINGTON",
+	"PostalCode": "19898",
+	"CityZip": "WILMINGTON, 19898"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('500060')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('500060')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "500060",
+	"CustomerName": "Jupp Schmitz & Soehne",
+	"SalesOrganization": "0001",
+	"DistributionChannel": "01",
+	"Division": "01",
+	"SalesOrganizationName": "Sales Org. Germany",
+	"DistributionChannelName": "Direct Sales",
+	"DivisionName": "Pumps",
+	"City": "Koeln",
+	"PostalCode": "04711",
+	"CityZip": "Koeln, 04711"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('2401')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('2401')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "2401",
+	"CustomerName": "Napoli Export",
+	"SalesOrganization": "3020",
+	"DistributionChannel": "10",
+	"Division": "00",
+	"SalesOrganizationName": "USA Denver",
+	"DistributionChannelName": "Final customer saleS",
+	"DivisionName": "Cross-Division",
+	"City": "Napoli",
+	"PostalCode": "80142",
+	"CityZip": "Napoli, 80142"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('500099')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('500099')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "500099",
+	"CustomerName": "Omega Soft-Hardwar",
+	"SalesOrganization": "0001",
+	"DistributionChannel": "01",
+	"Division": "01",
+	"SalesOrganizationName": "Sales Org. Germany",
+	"DistributionChannelName": "Direct Sales",
+	"DivisionName": "Pumps",
+	"City": "NÃœRNBERG",
+	"PostalCode": "90455",
+	"CityZip": "NÃœRNBERG, 90455"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('466168')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('466168')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "466168",
+	"CustomerName": "Sequoia National Park Service",
+	"SalesOrganization": "3020",
+	"DistributionChannel": "30",
+	"Division": "00",
+	"SalesOrganizationName": "USA Denver",
+	"DistributionChannelName": "Internet Sales",
+	"DivisionName": "Cross-Division",
+	"City": "Sequoia Natl P",
+	"PostalCode": "93262",
+	"CityZip": "Sequoia Natl P, 93262"
+}, {
+	"__metadata": {
+		"id": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300702')",
+		"uri": "http://localhost:8080/sap/opu/odata/sap/SRA018_SO_TRACKING_SRV/Customers('300702')",
+		"type": "SRA018_SO_TRACKING_SRV.Customer"
+	},
+	"CustomerID": "300702",
+	"CustomerName": "Thornbury Enterprises",
+	"SalesOrganization": "3020",
+	"DistributionChannel": "10",
+	"Division": "00",
+	"SalesOrganizationName": "USA Denver",
+	"DistributionChannelName": "Final customer saleS",
+	"DivisionName": "Cross-Division",
+	"City": "IRVINE",
+	"PostalCode": "92604",
+	"CityZip": "IRVINE, 92604"
+}]

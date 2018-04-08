@@ -1,0 +1,17 @@
+[{
+	"icon": "jQuery.sap.getModulePath(\"cus.sd.salesorder.monitor.img.home.person_ph_48\", \".png\")",
+	"Title": "VP of Google",
+	"CustomerID": "300700",
+	"Id": "0000000000",
+	"Name": "Mr. James Brown",
+	"email": "jamesbrown@abc.com",
+	"phoneNo": "+16501234567"
+}, {
+	"icon": "jQuery.sap.getModulePath(\"cus.sd.salesorder.monitor.img.home.person_ph_48\", \".png\")",
+	"Title": "Account Executive",
+	"CustomerID": "300700",
+	"Id": "0000000000",
+	"Name": "Mr. Tim Cook",
+	"email": "timcook@abcd.com",
+	"phoneNo": "+16503451919"
+}]
